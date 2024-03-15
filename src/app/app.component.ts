@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-note-taking-app';
+  title: string = 'angular-note-taking-app';
+  myBtn: string = 'My Button';
+
+  // attr binding
+  isDisabled: Boolean = false;
+  angularImage: string = '../assets/angular16.png'
 }
