@@ -20,6 +20,9 @@ export class AppComponent {
   titleColor: string = 'white';
   description: string = 'font-size: 50px; color: white';
 
+  // Class Binding
+  redText: boolean = true;
+
   incrementCount() {
     this.counter++;
   }
