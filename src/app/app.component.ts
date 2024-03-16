@@ -26,4 +26,6 @@ export class AppComponent {
   incrementCount() {
     this.counter++;
   }
+
+  inputText: string = 'Initial Value';
 }
