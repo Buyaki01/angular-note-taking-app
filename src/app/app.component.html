@@ -5,3 +5,7 @@
 
 <div *ngIf="isLoggedIn; else loggedOut">Welcome back, {{ username }}</div>
 <ng-template #loggedOut>Please Login</ng-template>
+
+<ul>
+  <li *ngFor="let name of names">{{ name }}</li>
+</ul>
