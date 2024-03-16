@@ -27,5 +27,13 @@ export class AppComponent {
     this.counter++;
   }
 
+  // ngModel
   inputText: string = 'Initial Value';
+
+  // ngClass
+  message: string = 'This is a dangerous message';
+  classes: string = 'danger text-size'
+
+  // ngStyle
+  selectedColor: string = 'red';
 }

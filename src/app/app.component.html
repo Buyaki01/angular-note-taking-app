@@ -21,3 +21,11 @@ Hello {{ title }}
 
 <input [(ngModel)]="inputText" placeholder="Enter text" />
 <p>You entered: {{ inputText }} </p>
+
+<div [ngClass]="classes">
+  {{ message }}
+</div>
+
+<div class="color-box" [ngStyle]="{'color' : selectedColor}">
+  Box
+</div>
