@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-note-taking-app';
 
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
   username: string = "Ritta";
 }

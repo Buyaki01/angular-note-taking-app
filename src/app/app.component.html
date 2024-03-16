@@ -1,4 +1,7 @@
-<div *ngIf="isLoggedIn">Welcome, {{ username }}</div>
+<!-- <div *ngIf="isLoggedIn">Welcome, {{ username }}</div>
 <div *ngIf="!isLoggedIn">Please login to view the content</div>
 
-<div *ngIf="isLoggedIn && true">Login content</div>
+<div *ngIf="isLoggedIn && true">Login content</div> -->
+
+<div *ngIf="isLoggedIn; else loggedOut">Welcome back, {{ username }}</div>
+<ng-template #loggedOut>Please Login</ng-template>
