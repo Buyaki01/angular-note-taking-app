@@ -12,4 +12,9 @@ export class AppComponent {
   // attr binding
   isDisabled: Boolean = false;
   angularImage: string = '../assets/angular16.png'
+
+  // Styles Binding
+  bgColor: string = 'green';
+  titleColor: string = 'white';
+  description: string = 'font-size: 50px; color: white';
 }
