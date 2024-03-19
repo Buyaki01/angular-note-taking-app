@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Post } from '../interfaces/posts.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class MessagesService {
     return ['message 1', 'message 2', 'message 3']
   }
 
-  getPosts() : Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl)
+  getPosts() : Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUrl)
   }
 }

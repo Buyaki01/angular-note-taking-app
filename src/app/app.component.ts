@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from './services/messages.service';
+import { Post } from './interfaces/posts.interface';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,9 @@ export class AppComponent implements OnInit{
     //subscribe has been deprecated
 
     this.messagesService.getPosts().subscribe({
-      next: (response) => {this.posts = response;},
+      next: (response:Post[]) => {
+        this.posts = response;
+      },
       error: (error) => {console.error(error);}
     })
   }
