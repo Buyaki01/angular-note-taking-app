@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from '../interfaces/posts.interface';
-import { OrderBook, Student } from '../interfaces/data.interface';
+import { LatestPrices, OrderBook, Student } from '../interfaces/data.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +30,9 @@ export class MessagesService {
 
   getOrderBook(): Observable<OrderBook> {
     return this.http.get<OrderBook>('http://localhost:1111/orderbook')
+  }
+
+  getLatestPrices(): Observable<LatestPrices> {
+    return this.http.get<LatestPrices>('http://localhost:1111/latestprices')
   }
 }
