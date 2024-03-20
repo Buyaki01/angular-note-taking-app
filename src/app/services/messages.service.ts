@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from '../interfaces/posts.interface';
-import { Student } from '../interfaces/data.interface';
+import { OrderBook, Student } from '../interfaces/data.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,9 @@ export class MessagesService {
 
   getStudents(): Observable<Student> {
     return this.http.get<Student>('http://localhost:1111/students')
+  }
+
+  getOrderBook(): Observable<OrderBook> {
+    return this.http.get<OrderBook>('http://localhost:1111/orderbook')
   }
 }

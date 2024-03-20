@@ -5,3 +5,16 @@ export interface Student {
     age: string,
     languages: Array<string>
 }
+
+interface Order {
+    id: number,
+    OrderType: string,
+    Price: number,
+    Volume: number
+}
+
+export interface OrderBook {
+    BuyOrders: Array<Order>,
+    CreatedTimestampUtc: string,
+    SellOrders: Array<Order>,
+}

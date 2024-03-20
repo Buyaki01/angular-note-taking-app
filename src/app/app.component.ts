@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from './services/messages.service';
 import { Post } from './interfaces/posts.interface';
-import { Student } from './interfaces/data.interface';
+import { OrderBook, Student } from './interfaces/data.interface';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +34,12 @@ export class AppComponent implements OnInit{
     this.messagesService.getStudents().subscribe({
       next: (students: Student) => {
         console.log('Students:', students);
+      } 
+    })
+
+    this.messagesService.getOrderBook().subscribe({
+      next: (orderbook: OrderBook) => {
+        console.log('OrderBook:', orderbook);
       } 
     })
   }
