@@ -1,0 +1,62 @@
+{
+    "languages": [
+        { "id": 1, "name": "Java" },
+        { "id": 2, "name": "C#" },
+        { "id": 3, "name": "Python" }
+    ],
+    "students": [
+        {
+            "id": 123,
+            "name": "john",
+            "phone": "123456",
+            "age":"21",
+            "languages": [1, 2, 3]
+        }
+    ],
+    "orderbook": {
+        "BuyOrders": [
+            {
+                "id": 1,
+                "OrderType": "Limit@id",
+                "Price": 497.920000,
+                "Volume": 0.01000000
+            },
+            {
+                "id": 2,
+                "OrderType": "Limit@id",
+                "Price": 430.920000,
+                "Volume": 1.01000000
+            }
+        ],
+        "CreatedTimestampUtc": "2024-03-20T12:00:00Z",
+        "SellOrders": [
+            {
+                "id": 3,
+                "OrderType": "LimitOffer",
+                "Price": 520.50,
+                "Volume": 1.5
+            },
+            {
+                "id": 4,
+                "OrderType": "LimitOffer",
+                "Price": 512.75,
+                "Volume": 0.75
+            }
+        ]
+    },
+    "latestprices": {
+        "status": "ok",
+        "prices": {
+            "btc": {
+                "bid": 55000.00,
+                "ask": 55500.00,
+                "last": 55250.00
+            },
+            "ltc": {
+                "bid": 150.00,
+                "ask": 155.00,
+                "last": 152.50
+            }
+        }
+    }
+}
