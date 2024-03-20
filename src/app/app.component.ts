@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from './services/messages.service';
 import { Post } from './interfaces/posts.interface';
+import { Student } from './interfaces/data.interface';
 
 @Component({
   selector: 'app-root',
@@ -17,18 +18,23 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    // this.messagesService.getPosts().subscribe(response => {
-    //   this.posts = response;
-    // }, (error) => {
-    //   console.error(error);
-    // }) 
-    //subscribe has been deprecated
-
     this.messagesService.getPosts().subscribe({
-      next: (response:Post[]) => {
+      next: (response: Post[]) => {
         this.posts = response;
       },
       error: (error) => {console.error(error);}
+    })
+
+    this.messagesService.getLanguages().subscribe({
+      next: (languages: Array<string>) => {
+        console.log('Languages:', languages);
+      } 
+    })
+
+    this.messagesService.getStudents().subscribe({
+      next: (students: Student) => {
+        console.log('Students:', students);
+      } 
     })
   }
 
