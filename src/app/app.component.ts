@@ -10,7 +10,7 @@ import { Post } from './interfaces/posts.interface';
 })
 export class AppComponent implements OnInit{
   messages: string[] = [];
-  posts: any[] = [];
+  posts: Post[] = [];
 
   constructor(private messagesService: MessagesService) {
     this.messages = messagesService.getMessages();
