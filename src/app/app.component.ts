@@ -61,6 +61,4 @@ export class AppComponent implements OnInit{
       console.log(form.value, this.user);
     }
   }
-
-  
 }
