@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessagesService } from './services/messages.service';
 import { Post } from './interfaces/posts.interface';
 import { LatestPrices, OrderBook, Student } from './interfaces/data.interface';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -50,5 +51,16 @@ export class AppComponent implements OnInit{
     })
   }
 
-  title = 'angular-note-taking-app';
+  user = {
+    name: '',
+    email: '',
+  };
+
+  submitForm(form: NgForm) {
+    if(form.valid) {
+      console.log(form.value, this.user);
+    }
+  }
+
+  
 }
