@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +17,35 @@ export class AppComponent{
           Validators.required,
           Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
         ]
-      ]
+      ],
+      address: this.formBuilder.group({
+        street: ['', Validators.required],
+        city: ['', Validators.required],
+      }),
+      phoneNumbers: this.formBuilder.array([
+        this.formBuilder.control('', [
+          Validators.required,
+          Validators.pattern(/^\d{10}$/)
+        ])
+      ])
     })
+  }
+
+  get phoneNumbers() {
+    return this.userForm.get('phoneNumbers') as FormArray
+  }
+
+  addPhoneNumber() {
+    this.phoneNumbers.push(
+      this.formBuilder.control('', [
+        Validators.required,
+        Validators.pattern(/^\d{10}$/)
+      ])
+    );
+  }
+
+  removePhoneNumber(index: number) {
+    this.phoneNumbers.removeAt(index);
   }
 
   submitForm(){

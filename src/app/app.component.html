@@ -9,7 +9,26 @@
     <input type="email" name="email" id="email" placeholder="Email" formControlName="email">
   </div>
 
+  <div formGroupName="address">
+    <label for="street">Street: </label>
+    <input type="text" name="street" id="street" placeholder="Street" formControlName="street">
+
+    <label for="city">City: </label>
+    <input type="text" name="city" id="city" placeholder="City" formControlName="city">
+  </div>
+
+  <div formArrayName="phoneNumbers">
+    <div *ngFor="let phoneCtrl of phoneNumbers.controls; let i = index">
+      <label for="">Phone Number {{i + 1}}</label>
+      <input type="text" [formControlName]="i">
+      <button type="button" (click)="removePhoneNumber(i)">Remove phone number</button>
+    </div>
+    <div>
+      <button type="button" (click)="addPhoneNumber()">Add phone number</button>
+    </div>
+  </div>
+
   <div>
-    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
   </div>
 </form>
