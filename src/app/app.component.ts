@@ -1,54 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { MessagesService } from './services/messages.service';
-import { Post } from './interfaces/posts.interface';
-import { LatestPrices, OrderBook, Student } from './interfaces/data.interface';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [MessagesService],
 })
-export class AppComponent implements OnInit{
-  messages: string[] = [];
-  posts: Post[] = [];
+export class AppComponent{
+  userForm!: FormGroup
 
-  constructor(private messagesService: MessagesService) {
-    this.messages = messagesService.getMessages();
-  }
-
-  ngOnInit(){
-    this.messagesService.getPosts().subscribe({
-      next: (response: Post[]) => {
-        this.posts = response;
-      },
-      error: (error) => {console.error(error);}
-    })
-
-    this.messagesService.getLanguages().subscribe({
-      next: (languages: Array<string>) => {
-        console.log('Languages:', languages);
-      } 
-    })
-
-    this.messagesService.getStudents().subscribe({
-      next: (students: Student) => {
-        console.log('Students:', students);
-      } 
-    })
-
-    this.messagesService.getOrderBook().subscribe({
-      next: (orderbook: OrderBook) => {
-        console.log('OrderBook:', orderbook);
-      } 
-    })
-
-    this.messagesService.getLatestPrices().subscribe({
-      next: (latestprices: LatestPrices) => {
-        console.log('LatestPrices:', latestprices);
-      } 
+  constructor(private formBuilder: FormBuilder) {
+    this.userForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', 
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
+        ]
+      ]
     })
   }
 
-  title = 'angular-note-taking-app';
+  submitForm(){
+    if(this.userForm.valid){
+      console.log(this.userForm.value)
+    }
+  }
 }
