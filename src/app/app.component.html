@@ -1,6 +1,6 @@
-<div>
+<div class="app-container">
     <h1>Task List</h1>
-    <div *ngFor="let t of tasks">
-        <app-task [todos]="t"></app-task>
+    <div *ngFor="let t of tasks" class="display-tasks">
+        <app-task [todos]="t" (taskDeleted) = "deleteTask(t)"></app-task>
     </div>
 </div>

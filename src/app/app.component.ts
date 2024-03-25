@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   tasks: string[] = ['Task 1', 'Task 2', 'Task 3'];
+
+  deleteTask(task: string) {
+    this.tasks = this.tasks.filter((t) => t !== task);
+  }
 }
