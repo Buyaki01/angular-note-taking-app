@@ -26,7 +26,7 @@ export class NoteFormComponent implements OnInit {
     }
 
     const note: Note = this.noteForm.value;
-    console.log(note)
+    this.noteService.createNote(note)
 
     this.noteForm.reset();
   }
