@@ -21,8 +21,8 @@ export class NoteListComponent {
   editNote(note: Note): void {
 
   }
-
+  
   deleteNote(id: number): void {
-    
+    this.noteService.deleteNote(id);
   }
 }

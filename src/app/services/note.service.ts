@@ -16,8 +16,13 @@ export class NoteService {
   }
 
   createNote(note: Note): void {
-    note.id = this.notes.length;
+    note.id = new Date().getTime();
     this.notes.push(note);
+    this.notesSubject.next(this.notes);
+  }
+
+  deleteNote(id: number): void {
+    this.notes = this.notes.filter((note) => note.id !== id);
     this.notesSubject.next(this.notes);
   }
 }
