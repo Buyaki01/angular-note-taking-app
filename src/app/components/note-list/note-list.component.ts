@@ -19,7 +19,7 @@ export class NoteListComponent {
   }
 
   editNote(note: Note): void {
-
+    this.noteService.setEditable(true);
   }
   
   deleteNote(id: number): void {

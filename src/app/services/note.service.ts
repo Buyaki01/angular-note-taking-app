@@ -8,8 +8,17 @@ import { Note } from '../interfaces/note';
 export class NoteService {
   private notes: Note[] = [];
   private notesSubject = new BehaviorSubject<Note[]>([])
+  private isEdit = new BehaviorSubject<boolean>(false);
 
   constructor() { }
+
+  getEditable() {
+    return this.isEdit.asObservable();
+  }
+
+  setEditable(value: boolean) {
+    this.isEdit.next(value);
+  }
 
   getNotesObservable(): Observable<Note[]> {
     return this.notesSubject.asObservable();
