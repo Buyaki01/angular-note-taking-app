@@ -8,12 +8,30 @@ import { Note } from '../interfaces/note';
 export class NoteService {
   private notes: Note[] = [];
   private notesSubject = new BehaviorSubject<Note[]>([])
+  private isEdit = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
+  getEditable() {
+    return this.isEdit.asObservable();
+  }
+
+  setEditable(value: boolean) {
+    this.isEdit.next(value);
+  }
+
+  getNotesObservable(): Observable<Note[]> {
+    return this.notesSubject.asObservable();
+  }
+
   createNote(note: Note): void {
-    note.id = this.notes.length;
+    note.id = new Date().getTime();
     this.notes.push(note);
+    this.notesSubject.next(this.notes);
+  }
+
+  deleteNote(id: number): void {
+    this.notes = this.notes.filter((note) => note.id !== id);
     this.notesSubject.next(this.notes);
   }
 }
