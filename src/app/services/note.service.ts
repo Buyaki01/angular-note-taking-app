@@ -11,6 +11,10 @@ export class NoteService {
 
   constructor() { }
 
+  getNotesObservable(): Observable<Note[]> {
+    return this.notesSubject.asObservable();
+  }
+
   createNote(note: Note): void {
     note.id = this.notes.length;
     this.notes.push(note);
