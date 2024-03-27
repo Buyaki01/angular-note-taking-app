@@ -14,7 +14,15 @@ export class NoteListComponent {
 
   ngOnInit(): void {
     this.noteService.getNotesObservable().subscribe((notes: Note[]) => {
-      console.log(notes);
+      this.notes = notes;
     })
+  }
+
+  editNote(note: Note): void {
+
+  }
+
+  deleteNote(id: number): void {
+    
   }
 }
